@@ -1,0 +1,35 @@
+---
+name: UK Carbon Intensity
+description: Grid CO2 + generation mix
+strategy: polling
+polling_verb: get
+polling_url: |
+  https://api.carbonintensity.org.uk/intensity
+  https://api.carbonintensity.org.uk/generation
+  https://api.carbonintensity.org.uk/intensity/{{ "now" | date: "%Y-%m-%dT%H:00Z" }}/fw24h
+polling_headers: ''
+refresh_interval: 30
+no_screen_padding: 'no'
+dark_mode: 'no'
+serverless_language: python
+recipe_overview: |
+  Live UK electricity carbon intensity (gCO2/kWh), index band, next-hours forecast,
+  and national generation mix (gas, wind, nuclear, solar, imports, and more).
+  Optionally pass a UK postcode outward code (e.g. IP1 for Ipswich) to prefer the
+  regional intensity and mix from the National Grid ESO Carbon Intensity API.
+  No API key required. Data © National Grid ESO / carbonintensity.org.uk.
+custom_fields:
+  - keyname: outcode
+    field_type: string
+    name: Postcode outward code
+    description: Optional UK outward code for regional intensity (e.g. IP1). Leave blank for national.
+    placeholder: IP1
+    optional: true
+    maxlength: 4
+  - keyname: about
+    name: About This Plugin
+    field_type: author_bio
+    category: environment,nature
+    description: Built by Alex Baldry (Ipswich, UK). Uses the free National Grid ESO Carbon Intensity API.
+    github_url: https://github.com/byalex33
+    email_address: alex@byalex.dev

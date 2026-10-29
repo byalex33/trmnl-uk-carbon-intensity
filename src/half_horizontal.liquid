@@ -1,0 +1,23 @@
+<div class="layout layout--col gap--xsmall">
+  <div class="flex flex--row flex--between">
+    <div>
+      <span class="value value--large value--tnums">{{ gco2 }}</span>
+      <span class="label">gCO₂/kWh · {{ index }}</span>
+    </div>
+    <div>
+      <span class="label label--small">Top fuels</span>
+      {% for m in mix limit:3 %}
+        <span class="label">{{ m.fuel }} {{ m.perc }}%</span>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="flex flex--row gap--small">
+    {% for f in forecast limit:4 %}
+      <span class="label label--small">{{ f.from }} {{ f.gco2 }}</span>
+    {% endfor %}
+  </div>
+</div>
+<div class="title_bar">
+  <span class="title">UK Carbon</span>
+  <span class="instance">{{ region }}</span>
+</div>

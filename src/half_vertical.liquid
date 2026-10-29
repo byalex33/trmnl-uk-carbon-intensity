@@ -1,0 +1,15 @@
+<div class="layout layout--col gap--xsmall">
+  <span class="value value--large value--tnums">{{ gco2 }}</span>
+  <span class="label">gCO₂/kWh · {{ index }}</span>
+  {% for m in mix limit:5 %}
+    <div class="item">
+      <div class="content">
+        <span class="title title--small">{{ m.fuel }}</span>
+        <span class="label label--small">{{ m.perc }}%</span>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+<div class="title_bar">
+  <span class="title">UK Carbon</span>
+</div>

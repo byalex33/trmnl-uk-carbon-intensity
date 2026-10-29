@@ -1,0 +1,37 @@
+<div class="layout layout--col gap--small">
+  <div class="flex flex--row flex--between flex--top">
+    <div class="flex flex--col">
+      <span class="label label--small">{{ region }} intensity</span>
+      <span class="value value--xlarge value--tnums">{{ gco2 }}</span>
+      <span class="label">gCO₂/kWh · {{ index }}</span>
+    </div>
+    <div class="flex flex--col">
+      <span class="label label--small">Generation mix</span>
+      {% for m in mix limit:6 %}
+        <div class="item">
+          <div class="content">
+            <span class="title title--small">{{ m.fuel }}</span>
+            <span class="label label--small">{{ m.perc }}%</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div>
+    <span class="label label--small">Next hours (forecast)</span>
+    <div class="flex flex--row gap--small">
+      {% for f in forecast limit:6 %}
+        <div class="item">
+          <div class="content">
+            <span class="value value--small value--tnums">{{ f.gco2 }}</span>
+            <span class="label label--small">{{ f.from }} · {{ f.index }}</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<div class="title_bar">
+  <span class="title">UK Carbon Intensity</span>
+  <span class="instance">{{ region }}</span>
+</div>

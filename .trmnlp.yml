@@ -1,0 +1,14 @@
+---
+watch:
+  - .trmnlp.yml
+  - src
+custom_fields:
+  outcode: "IP1"
+time_zone: Europe/London
+transform_runtime: enabled
+variables:
+  trmnl:
+    user:
+      name: Alex Baldry
+    plugin_settings:
+      instance_name: Ipswich
